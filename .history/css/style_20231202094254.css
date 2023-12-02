@@ -1,0 +1,134 @@
+/* Global */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font-family: 'Hind', sans-serif;
+    /*? rem: dựa vào font-size của thẻ html => hỗ trợ cho bảo trì trang web
+    font-size, spacing(padding, margin)
+    nếu ko khai báo thì font-size mặc định 1rem = 16px
+    1rem = 18px
+    */
+    font-size: 18px;
+}
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 
+    + z-index: auto của thẻ có position tạo sau sẽ > tạo trước đó
+    + z-index có số > z-index : auto
+    + z-index có số lớn đè lên > số nhỏ
+    */
+    z-index: 2;
+    width: 100%;
+    /* z-index: 999999; chỉ dùng khi web có cấu trúc lớn, phức tạp */
+}
+header .navbar-brand {
+    /* 1rem = 18px => 2rem = 36px*/
+    font-size: 2rem;
+}
+#portfolioNav .nav-link {
+    font-size: 1rem;
+    padding: 0 0.833rem;
+    /*! trước hover */
+    color: white;
+    transition: all .5s;
+}
+#portfolioNav .nav-link::after {
+    content: "";
+    display: block;
+    /* trước hover */
+    width: 0;
+    height: 5px;
+
+    background: #35a22c;
+    transition: all .5s;
+}
+/*! sau hover */
+#portfolioNav .nav-item:hover .nav-link::after {
+    width: 100%;
+}
+#portfolioNav .nav-item:hover .nav-link {
+    color: #35a22c;
+   
+}
+/* Thẻ li có class active thì after của nó luôn xuất hiện */
+/* #portfolioNav  li.active .nav-link::after{
+    width: 100%;
+} */
+#portfolioNav  .active .nav-link::after{
+    width: 100%;
+}
+#portfolioNav  .active .nav-link {
+    color: #35a22c;
+
+}
+/*! Nằm dưới cùng của vùng nội dung chính header  
+    + dễ đọc code
+    + bị dài code
+Desktop first: max-width (màn hình lớn trước -> màn hình nhỏ sau)
+Mobile first: min-width (màn hình nhỏ trước -> màn hình lớn sau)
+*/
+@media screen and (max-width: 992px ){
+    /* kích thước tối đa vùng màn hình <= 992px */
+    header .navbar .navbar-toggler {
+        background-color: #35a22c;
+    }
+}
+@media screen and (max-width: 576px ){ 
+    header .navbar .navbar-toggler {
+        background-color: hotpink;
+    }
+}
+/* Carousel */
+/* Gọi các thẻ img là con trực tiếp (cấp 1) của carousel-item */
+#carouselPortMain .carousel-item >img {
+    /* thường dùng ở Main carousel */
+    height: 100vh;
+    object-fit: cover;
+}
+#carouselPortMain .carousel-caption img {
+    /* hình có dạng hình vuông thì chỉ cần xét width */
+    width: 140px;
+    border-radius: 50%;
+}
+/* chỉnh đường gạch indicators thì chuyển chữ nhật => hình vuông => tròn */
+
+/*! căn giữa với position absolute cho mọi màn hình */
+#carouselPortMain .carousel-caption {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* PROJECTS */
+.projects {
+    padding: 100px 0;
+}
+/* Awards 
+img: khi cần SEO (khối products)
+background-image: ảnh trang trí ko cần SEO (có thể dùng img nhưng chỉ nên dùng với ảnh kích thước nhỏ)
+*/
+.awards {
+    padding: 70px 0;
+    background-image: url(../img/memphis_3.png);
+    /* nếu nền có size nhỏ hơn thẻ cha => tự động lặp lại ảnh để phủ hết thẻ cha */
+    background-size: 50%;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+}
+.awards__left {
+    padding: 45px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.3);
+}
+/*! TOàn bộ code responsive nằm dưới cùng của CSS
+    + tiêt kiệm code
+    + khó đọc code
+*/

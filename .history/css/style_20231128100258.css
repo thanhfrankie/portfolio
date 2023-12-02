@@ -1,0 +1,22 @@
+/* Global */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font-family: 'Hind', sans-serif;
+    /*? rem: dựa vào font-size của thẻ html 
+    font-size, spacing(padding, margin)
+    1rem = 18px
+    */
+    font-size: 18px;
+}
+/* Header */
+header .navbar-brand {
+    /* 1rem = 18px => 2rem = 36px*/
+    font-size: 2rem;
+}
+#portfolioNav .nav-link {
+    font
+}

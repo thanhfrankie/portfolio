@@ -1,0 +1,42 @@
+/* Global */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font-family: 'Hind', sans-serif;
+    /*? rem: dựa vào font-size của thẻ html => hỗ trợ cho bảo trì trang web
+    font-size, spacing(padding, margin)
+    nếu ko khai báo thì font-size mặc định 1rem = 16px
+    1rem = 18px
+    */
+    font-size: 18px;
+}
+/* Header */
+header .navbar-brand {
+    /* 1rem = 18px => 2rem = 36px*/
+    font-size: 2rem;
+}
+#portfolioNav .nav-link {
+    font-size: 1rem;
+    padding: 0 0.833rem;
+}
+#portfolioNav .nav-link::after {
+    content: "";
+    display: block;
+    /* trước hover */
+    width: 0;
+    height: 5px;
+
+    background: #35a22c;
+    transition: all .5s;
+}
+/* sau hover */
+#portfolioNav .nav-item:hover .nav-link::after {
+    width: 100%;
+}
+/* Thẻ li có class active thì after của nó luôn xuất hiện */
+#portfolioNav .nav-link::after +.active {
+    width: 100%;
+}
